@@ -1,6 +1,6 @@
 'use client'
 import { productsDummyData, userDummyData } from "@/assets/assets";
-import { useRouter } from "next/navigation";
+import { useroute } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 // ...existing code...
@@ -14,7 +14,7 @@ export const useAppContext = () => {
 export const AppContextProvider = (props) => {
 
     const currency = process.env.NEXT_PUBLIC_CURRENCY
-    const router = useRouter()
+    const route = useroute()
     const { user } = useUser()
 
     const [products, setProducts] = useState([])
@@ -86,7 +86,7 @@ export const AppContextProvider = (props) => {
 
     const value = {
         user,
-        currency, router,
+        currency, route,
         isSeller, setIsSeller,
         userData, fetchUserData,
         products, fetchProductData,

@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const Navbar = () => {
 
-  const { isSeller, router, user } = useAppContext();
+  const { isSeller, route, user } = useAppContext();
   const { openSignIn } = useClerk()
    const [menuOpen, setMenuOpen] = useState(false); 
 
@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-gray-700">
       <Image
         className="cursor-pointer w-28 md:w-32"
-        onClick={() => router.push('/')}
+        onClick={() => route.push('/')}
         src={assets.logo}
         alt="logo"
       />
@@ -37,7 +37,7 @@ const Navbar = () => {
           Contact
         </Link>
 
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
+        {isSeller && <button onClick={() => route.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
 
       </div>
 
@@ -45,14 +45,14 @@ const Navbar = () => {
         <Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />
         <button
           title="Carrito"
-          onClick={() => router.push('/cart')}
+          onClick={() => route.push('/cart')}
           className="flex items-center hover:text-gray-900 transition"
         >
           <CartIcon />
         </button>
         <button
           title="Pedidos"
-          onClick={() => router.push('/my-orders')}
+          onClick={() => route.push('/my-orders')}
           className="flex items-center hover:text-gray-900 transition"
         >
           <Image src={assets.order_icon} alt="orders icon" className="w-5 h-5" width={20} height={20} />
